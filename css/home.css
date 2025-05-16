@@ -1,0 +1,51 @@
+/* home css */
+
+#hero {
+  position: relative;
+  background-image: url("../assets/img/bg.png");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  padding: 100px 20px;
+  text-align: center;
+  color: white; /* supaya teks tetap terlihat */
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* 40% hitam */
+  z-index: 2;
+}
+
+#hero .container {
+  position: relative;
+  z-index: 3; /* supaya teks di atas overlay */
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+
+  margin-bottom: 30px;
+}
+
+#hero h1 {
+  font-size: 2.2rem;
+  margin: 10px 0;
+}
+
+#hero h1 span {
+  color: #caa93e;
+}
+
+.page-section {
+  padding: 50px 20px;
+  transition: all 0.3s ease;
+}

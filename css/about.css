@@ -1,0 +1,371 @@
+header {
+  position: relative;
+  z-index: 30;
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* navbar */
+
+/* Desktop */
+.nav-links ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000000;
+}
+.wave-separator {
+  margin-top: -5px; /* sedikit overlap agar menyatu */
+  line-height: 0;
+}
+
+.wave-separator svg {
+  display: block;
+  width: cover;
+  color: #00baf5;
+}
+
+/* animasi poto tali*/
+.hanging-photo-wrapper {
+  position: relative;
+  height: 280px; /* ruang kosong buat tali dan foto */
+
+  padding: 50px 20px;
+}
+
+.hanging-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideDown 1s ease-out forwards;
+  z-index: 5;
+}
+
+.rope {
+  width: 2px;
+  height: 120px;
+  background-color: rgb(248, 248, 248);
+  animation: sway 2s infinite ease-in-out;
+}
+
+.swing-photo {
+  width: 100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: swing 3s infinite ease-in-out;
+}
+
+.about-section {
+  padding: 40px;
+}
+
+/* Animasi */
+@keyframes swing {
+  0% {
+    transform: rotate(1.2deg);
+  }
+  50% {
+    transform: rotate(-1.2deg);
+  }
+  100% {
+    transform: rotate(1.2deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0.4deg);
+  }
+  50% {
+    transform: rotate(-0.4deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Edukasi & experience */
+.about {
+  width: 80vw; /* 50% dari lebar layar */
+  word-wrap: break-word;
+  line-height: 1.6;
+}
+
+.education,
+.experience {
+  padding: 50px;
+}
+
+.education img {
+  width: 100px;
+  border-radius: 15px;
+  right: 0;
+}
+
+.education h2 {
+  color: #f0f0f0;
+}
+
+.education h1,
+.experience h1 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.education h3 {
+  font: bold;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skills-list li {
+  background-color: #2a2a2a;
+  color: #00bfa5;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+.skills-list li:hover {
+  transform: translateY(-2px);
+}
+.education p,
+.experience p {
+  font-size: 1rem;
+  margin-bottom: 13px;
+  color: #f0f0f0;
+}
+
+.education span,
+.experience span {
+  color: #c5a13e;
+  font-size: 1.2rem;
+}
+
+/* portofolio sekolah */
+.portfolio-school {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #242323;
+}
+
+.portfolio-school h2 {
+  color: #f0f0f0;
+}
+
+.photo-columns {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 25px;
+}
+
+.photo-stack {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.photo-stack img {
+  position: absolute;
+  width: 180px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, z-index 0.2s;
+  cursor: pointer;
+}
+
+/* Atur posisi saling tumpang tindih dan rotasi */
+.photo-stack img:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform: rotate(-8deg);
+}
+
+.photo-stack img:nth-child(2) {
+  top: 20px;
+  left: 60px;
+  transform: rotate(4deg);
+}
+
+.photo-stack img:nth-child(3) {
+  top: 40px;
+  left: 30px;
+  transform: rotate(-2deg);
+}
+.photo-stack img:nth-child(4) {
+  top: 60px;
+  left: 80px;
+  transform: rotate(2deg);
+}
+
+/* Efek saat hover: Membesar dan naik ke atas */
+.photo-stack img:hover {
+  transform: scale(1.2) rotate(0deg);
+  z-index: 10;
+}
+
+/* === RESPONSIVE === */
+/* RESPONSIF UNTUK HP & TABLET */
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; /* tepat di bawah header */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: row; /* horizontal */
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nav-links ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .nav-links ul li a {
+    display: inline-block;
+    padding: 8px 14px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+
+    transition: background-color 0.2s;
+  }
+
+  .nav-links ul li a:hover {
+    background-color: #f0f0f0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .swing-photo {
+    width: 80px;
+  }
+
+  .rope {
+    height: 50px;
+    color: #f0f0f0;
+  }
+
+  .hanging-photo-wrapper {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .hanging-photo-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* foto grid about */
+
+  .photo-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .photo-stack {
+    width: 250px;
+    height: 300px;
+  }
+
+  .photo-stack img {
+    width: 160px;
+    height: 220px;
+  }
+
+  .photo-stack img:nth-child(1) {
+    top: 0;
+    left: 20px;
+    transform: rotate(-5deg);
+  }
+
+  .photo-stack img:nth-child(2) {
+    top: 30px;
+    left: 30px;
+    transform: rotate(5deg);
+  }
+
+  .photo-stack img:nth-child(3) {
+    top: 60px;
+    left: 10px;
+    transform: rotate(-3deg);
+  }
+
+  /* exxperirnce & education */
+
+  .about {
+    width: 100vw; /* 50% dari lebar layar */
+    word-wrap: break-word;
+    line-height: 1.6;
+  }
+}
